@@ -5,11 +5,12 @@
 ## 다운로드
 
 - 최신 버전: 저장소 맨 위의 `Dolphin_thisshine.vrm` (항상 최신으로 갱신됩니다. VRM 1.0, 약 51MB)
-- 버전별 파일: [Releases](https://github.com/e7hao/thisshine/releases)에서 `Dolphin_thisshine_vX.Y.vrm`을 받습니다. 예전 버전으로 돌아가고 싶을 때 씁니다.
+- 버전별 파일: [Releases](https://github.com/e7hao/thisshine/releases)에서 `Dolphin_thisshine_vA.B.C.vrm`을 받습니다. 예전 버전으로 돌아가고 싶을 때 씁니다.
 
-버전 번호 규칙:
-- `vX.0`: 의상 추가 같은 큰 변경
-- `vX.Y`: 기존 의상 수정, 버그 수정
+버전 번호 규칙 (`vA.B.C`):
+- `C` (0.0.1씩): 아바타 수정, 버그 수정. 예: v1.0.0 → v1.0.1
+- `B` (0.1.0씩): 의상 추가. 예: v1.0.x → v1.1.0
+- `A`: 아바타 자체를 크게 바꿀 때
 
 ## 의상
 
@@ -35,6 +36,16 @@
    - Steam 기본 설치 경로는 `C:\Program Files (x86)\Steam\steamapps\common\Warudo\Warudo_Data\StreamingAssets\Characters`입니다.
 2. 캐릭터 에셋의 Source에서 `Dolphin_thisshine`을 고릅니다.
 3. 표정을 가져오겠냐고 물으면 **Yes**를 누릅니다. 묻지 않으면 캐릭터 에셋 → Expressions → **Import VRM Expressions**를 누르고, 이어서 **Generate Key Binding Blueprint**를 누릅니다.
+
+## 새 버전으로 업데이트할 때
+
+Warudo는 캐릭터 에셋에 예전 버전의 표정 설정을 그대로 남겨둡니다. 파일만 바꾸면 의상이 안 보이거나 섞일 수 있습니다.
+
+1. 캐릭터 에셋 → Expressions에서 `outfit2`~`outfit5`, `paws`, `hood_off`를 지웁니다.
+2. **Import VRM Expressions**를 다시 누릅니다.
+3. 아래 Layer 설정을 다시 합니다.
+
+캐릭터 에셋을 새로 만들어도 됩니다.
 
 ## 꼭 할 설정: 의상 표정을 같은 Layer에 두기
 
@@ -71,11 +82,13 @@ Warudo는 VRM 표정을 가져올 때 `outfit2`~`outfit5`에 서로 다른 Layer
 
 ## 알려진 점
 
-- 입지 않은 의상은 투명 처리(MToon alpha cutout)로 숨깁니다. 표정을 켜면 해당 의상의 블렌드셰이프와 재질 알파가 함께 켜집니다.
+- 입지 않은 의상은 투명 처리(MToon alpha cutout)로 숨깁니다. 표정을 켜면 해당 의상의 블렌드셰이프와 재질 알파가 함께 켜지고, 의상 1(후드티)은 투명해집니다.
+- 의상은 반드시 표정(`outfit2`~`outfit5`)으로 바꿉니다. 블렌드셰이프(O2~O5)만 직접 바꾸면 옷이 투명한 채로 남습니다.
 - 할로윈 미라 마녀 의상은 작업 중이며 나중에 이 파일에 추가됩니다.
 
 ## 버전 기록
 
 | 버전 | 날짜 | 내용 |
 |---|---|---|
-| v1.0 | 2026-10-31 | 의상 1~5 통합 첫 버전 |
+| v1.0.0 | 2026-10-31 | 의상 1~5 통합 첫 버전 |
+| v1.0.1 | 2026-10-31 | 의상 2의 치마가 덜 퍼지고, 뒤쪽이 엉덩이를 덮게 됨 (엉덩이 충돌 추가). 레그워머가 다리에 맞게 붙고 흔들리지 않게 됨. 꼬리가 치마 바깥으로 지나감. 의상 2~5에서 의상 1 후드티가 남던 문제 수정. 의상 1과 2의 신발 재질 분리 |
